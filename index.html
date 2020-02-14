@@ -104,6 +104,18 @@ window.onclick = function(e) {
 }
 </script>
 
+ <p>Click "Try it" to call a function with arguments</p>
+
+<button onclick="myFunction('Harry Potter','Wizard')">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction(name,job) {
+  document.getElementById("demo").innerHTML = "Welcome " + name + ", the " + job + ".";
+}
+</script>
+  
 <h1>Rosa Cruz</h1>
 <p>This is my class homepage</p>
 
