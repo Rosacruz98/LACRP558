@@ -125,8 +125,21 @@ function myFunction(name,job) {
 <h1>Rosa Cruz</h1>
 <p>This is my class homepage</p>
 
+<p id="demo"></p>
+
 <script>
-var animals = ["cat", "dog", "mouse"];
+var animals, text, fLen, i;
+animals = ["cat", "dog", "mouse"];
+fLen = animals.length;
+ 
+ text = "<ul>";
+for (i = 0; i < fLen; i++) {
+  text += "<li>" + animals[i] + "</li>";
+}
+text += "</ul>";
+
+document.getElementById("demo").innerHTML = text;
+
 
 </script>
 
