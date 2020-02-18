@@ -71,14 +71,14 @@
 <body>
  
  <div class="navbar">
-  <a href="#home">Home</a>
+  <a href="https://rosacruz98.github.io/LACRP558/">Home</a>
   <a href="">    </a>
   <div class="dropdown">
   <button class="dropbtn" onclick="myFunction()">Dropdown
     <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-content" id="myDropdown">
-    <a href="https://rosacruz98.github.io/LACRP558/assignment1/">assignment 1</a>
+    <a href="#">Link 1</a>
     <a href="#">Link 2</a>
     <a href="#">Link 3</a>
   </div>
@@ -103,12 +103,75 @@ window.onclick = function(e) {
   }
 }
 </script>
+<br>
+  
+  
+  </br>
 
-<h1>Rosa Cruz</h1>
-<p>This is my class homepage</p>
+<button onclick="myFunction('It works')">click here</button>
+  
+  <p id="demo"></p>
 
+<script>
+function myFunction(name,job) {
+  document.getElementById("demo").innerHTML = "Welcome";
+}
+	
+ <br>
+   
+   
+
+	
+	
+	
+	
+	</br>
+</script>
+
+<br>
+
+
+</br>
+
+<p id="demo"></p>
+
+<script>
+var animals, text, fLen, i;
+animals = ["cat", "dog", "mouse"];
+fLen = animals.length;
+ 
+ text = "<ul>";
+for (i = 0; i < fLen; i++) {
+  text += "<li>" + animals[i] + "</li>";
+}
+text += "</ul>";
+
+document.getElementById("demo").innerHTML = text;
+
+
+</script>
+
+<script>
+
+var vegetables = {
+  kind:"peas",
+  Color:"green",
+  Size:"small"
+};
+
+
+</script>
+
+<script type="text/javascript">
+		var age = prompt("How old are you");
+		if(age>=18)
+		document.write("According to your age, you are an adult <br />");
+		if(age<18)
+		document.write("According to your age, you are underage <br />");
+	</script>
 
 
 
 </body>
 </html>
+
