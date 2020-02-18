@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="description" content="LA/CRP 458/558 Leaflet starter file - 2020">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Getting Started with Leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+
+    <style>
+        #map {
+            width: 700px;
+            height: 500px;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+    <div id='map'></div>
+    
+    <br>Pan to <a href="javascript:Ames()">Ames, Iowa</a><br>
+
+    <a href="javascript:zoomOut()">Zoom out to level 6</a><br>
+
+    <button id="DesMoinesBtn">Visit My Hometown</button>
+
+
+    <script>
+        var map = L.map('map').setView([42.0, -93.634], 13);
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            // This is a unique access token, you must register for your own from https://account.mapbox.com/access-tokens/
+            accessToken: 'pk.eyJ1Ijoicm9zYWNydXoiLCJhIjoiY2s2c2ZsajZwMDJyeDNscGNlZ2trcGF3ciJ9.IwRn5m0V5eJbOwU8Jqyjiw' 
+        }).addTo(map);
+
+        L.marker([42.026533, -93.659285]).addTo(map)
+            .bindPopup("My House")
+            .openPopup();
+   
+  //----------Adding multiple town markers----------
+
+        //an array of towns
+        var towns = [
+            [41.6611,-91.5302, "Iowa city, Iowa"],
+            [41.0343,-93.7668, "Osceola, Iowa"],
+            [41.2619,-95.8608, "Council Bluffs, Iowa"]
+        ];
+
+        //loop through the array and add a marker for each
+        for (var i = 0; i < towns.length; i++) {
+            marker = new L.marker([towns[i][0], towns[i][1]])
+                .bindPopup(towns[i][2])
+                .addTo(map);
+        }
+
+
+        //----------Links below the Map----------
+
+        //Pan to Ames, IA
+        function Ames() {
+            map.panTo(new L.LatLng(42.0308,-93.6319));
+        }
+
+        //set Zoom
+        function zoomOut() {
+            map.setZoom(6);
+        };
+
+
+        //add an event listener for a click event on the button
+        document.getElementById("DesMoinesBtn").addEventListener("click", DesMoines);
+
+        //Goldfield Iowa function
+        function DesMoines() {
+            map.setView(new L.LatLng(41.58976,-93.61565), 13);
+        };    
+    </script>
+
+</body>
+</html>
