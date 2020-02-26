@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="description" content="LA/CRP 458/558 Leaflet starter file - 2020">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Getting Started with Leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+
+    <style>
+        #map {
+            width: 700px;
+            height: 500px;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+    <div id='map'></div>
+    
+
+    <script>
+        var map = L.map('map').setView([42.0, -93.634], 12);
+
+L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+        L.marker([42.026533, -93.659285]).addTo(map)
+            .bindPopup("My House")
+            .openPopup();
+   
+  L.circleMarker([42.023770, -93.645977], {radius: 10}).addTo(map);
+
+    L.circle([42.028638, -93.644650], {radius:10}).addTo(map);
+        
+        var latlngs = [[42.030338, -93.654081], [42.022802, -93.654286], [42.022802, -93.637427]]; 
+var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+    
+var latlngs = [[42.047175, -93.667584],[42.044626, -93.582440],[42.008921, -93.581753],[42.002798, -93.669644]]; 
+var polygon = L.polygon(latlngs, {color: 'red'}).addTo(map);
+        
+    </script>
+
+</body>
+</html>
