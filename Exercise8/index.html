@@ -13,9 +13,9 @@
         integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
         crossorigin=""></script>
 
-    <script src="../geojson/USA.geojson"></script>
-    <script src="../geojson/AutomatedWeatherObservingSystem.geojson"></script>
-    <script src="../geojson/USA_cities.geojson"></script>
+    <script src="https://rosacruz98.github.io/LACRP558/GeoJSON/DesMoinesAmesPolyline.geojson"></script>
+    <script src="https://rosacruz98.github.io/LACRP558/GeoJSON/DesMoinesPolygon.geojson"></script>
+    <script src="https://rosacruz98.github.io/LACRP558/GeoJSON/IowaDams.geoJson"></script>
     
    
     <!--  You can link to your geojson file using the file path (like example above) or using the full URL              
@@ -46,13 +46,10 @@
             accessToken: 'pk.eyJ1Ijoicm9zYWNydXoiLCJhIjoiY2s2c2ZsajZwMDJyeDNscGNlZ2trcGF3ciJ9.IwRn5m0V5eJbOwU8Jqyjiw' 
         }).addTo(map);
         
-        L.geoJSON(usa).addTo(map);
-        L.geoJSON(weatherObservingSystem).addTo(map);
-        L.geoJSON(cities).addTo(map);
+        L.geoJSON(Polyline).addTo(map);
+        L.geoJSON(Polygon).addTo(map);
+        L.geoJSON(IowaDams).addTo(map);
 
-        L.marker([42.00185, -93.63474]).addTo(map)
-            .bindPopup("My Office Location")
-            .openPopup();
     </script>
 
 </body>
