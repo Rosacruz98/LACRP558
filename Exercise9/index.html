@@ -33,7 +33,7 @@
 
 <div id='map'></div>
 
-<script type="text/javascript" src="../geojson/us-states.js"></script>
+<script type="text/javascript" src="https://rosacruz98.github.io/LACRP558/GeoJSON/Cancer_Rates.geojson"></script>
 
 <script type="text/javascript">
 
@@ -43,27 +43,27 @@
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 18,
             id: 'mapbox/streets-v11',
-            // This is a unique access token, you must register for your own from https://account.mapbox.com/access-tokens/
+            
             accessToken: 'pk.eyJ1Ijoicm9zYWNydXoiLCJhIjoiY2s2c2ZsajZwMDJyeDNscGNlZ2trcGF3ciJ9.IwRn5m0V5eJbOwU8Jqyjiw' 
         }).addTo(map);
 
 	// get color depending on population density value
 	function getColor(d) {
-		return d > 1000 ? '#253494' :
+		return  d > 600 ? '#253494' :
 				d > 500  ? '#2c7fb8' :
-				d > 200  ? '#41b6c4' :
-				d > 100   ? '#7fcdbb' :
-				d > 50   ? '#c7e9b4' :
+				d > 400  ? '#41b6c4' :
+				d > 300   ? '#7fcdbb' :
+				d > 200   ? '#c7e9b4' :
 							'#ffffcc';
 	}
 
 	function style(feature) {
 		return {
-			weight: 1,
+			weight: 2,
 			opacity: 1,
 			color: 'white',
-			fillOpacity: 0.7,
-			fillColor: getColor(feature.properties.density)
+			fillOpacity: 0.5,
+			fillColor: getColor(feature.properties.breast_can)
 		};
 	}
 
@@ -101,12 +101,12 @@
 		});
 	}
 
-	geojson = L.geoJson(statesData, {
+	geojson = L.geoJson(cancer_rates, {
 		style: style,
 		onEachFeature: onEachFeature
 	}).addTo(map);
 
-	map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
+	map.attributionControl.addAttribution('breast_can data &copy; <a href="https://rosacruz98.github.io/LACRP558/GeoJSON/Cancer_Rates.geojson</a>');
 
    
 </script>
