@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
-	<title>Exercise9 - Leaflet</title>
+<title>Assignment 2</title>
 
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,10 +25,12 @@
         #map { width: 800px; height: 500px; }
         
     </style>
-
+    
 </head>
-
 <body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
 
 <div id='map'></div>
 
@@ -47,7 +48,6 @@
             accessToken: 'pk.eyJ1Ijoicm9zYWNydXoiLCJhIjoiY2s2c2ZsajZwMDJyeDNscGNlZ2trcGF3ciJ9.IwRn5m0V5eJbOwU8Jqyjiw' 
         }).addTo(map);
 
-	// get color depending on population density value
 	function getColor(d) {
 		return  d > 600 ? '#253494' :
 				d > 500  ? '#2c7fb8' :
@@ -61,7 +61,7 @@
 		return {
 			weight: 2,
 			opacity: 1,
-			color: 'white',
+			color: 'red',
 			fillOpacity: 0.5,
 			fillColor: getColor(feature.properties.breast_can)
 		};
@@ -72,7 +72,7 @@
 
 		layer.setStyle({
 			weight: 2,
-			color: 'black',
+			color: 'Blue',
 			dashArray: '',
 			fillOpacity: 0.7
 		});
@@ -101,15 +101,15 @@
 		});
 	}
 
-	geojson = L.geoJson(cancer_rates, {
+	geojson = L.geoJson(Cancer_Rates1, {
 		style: style,
 		onEachFeature: onEachFeature
 	}).addTo(map);
 
-	map.attributionControl.addAttribution('breast_can data &copy; <a href="https://rosacruz98.github.io/LACRP558/GeoJSON/Cancer_Rates.geojson</a>');
+	map.attributionControl.addAttribution('breast_can data &copy; <a href="https://rosacruz98.github.io/LACRP558/GeoJSON/Cancer_Rates1.geojson</a>');
 
    
 </script>
-
+    
 </body>
 </html>
