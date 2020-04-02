@@ -49,13 +49,15 @@
 
 	// get color depending on population density value
 	function getColor(d) {
-		return  d > 600 ? '#253494' :
-				d > 500  ? '#2c7fb8' :
-				d > 400  ? '#41b6c4' :
-				d > 300   ? '#7fcdbb' :
-				d > 200   ? '#c7e9b4' :
+		return  d > 600 ? '#006d2c' :
+				d > 500  ? '#2ca25f' :
+				d > 400  ? '#66c2a4' :
+				d > 300   ? '#b2e2e2' :
+				d > 200   ? '#edf8fb' :
 							'#ffffcc';
 	}
+    
+    
 
 	function style(feature) {
 		return {
@@ -66,6 +68,10 @@
 			fillColor: getColor(feature.properties.breast_can)
 		};
 	}
+    
+    
+    
+    
 
 	function highlightFeature(e) {
 		var layer = e.target;
@@ -74,7 +80,7 @@
 			weight: 2,
 			color: 'black',
 			dashArray: '',
-			fillOpacity: 0.7
+			fillOpacity: 0.
 		});
 
 		if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
@@ -101,7 +107,7 @@
 		});
 	}
 
-	geojson = L.geoJson(cancer_rates, {
+	geojson = L.geoJson(cancer_rates1, {
 		style: style,
 		onEachFeature: onEachFeature
 	}).addTo(map);
