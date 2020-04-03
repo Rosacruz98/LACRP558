@@ -17,24 +17,26 @@
   <body>
     <div id="map"></div>
     <script>
-    
+     var map = L.map('map', {
+    center: new L.LatLng(42.0908, -93.6208),
+    zoom: 8,
+}).addTo(map); 
         var ortho_1990 = L.tileLayer.wms("https://ortho.gis.iastate.edu/arcgis/services/ortho/ortho_1990/ImageServer/WMSServer", {
     layers: 'ortho_1990',
     format: 'image/png',
     transparent: true,
     attribution: "Iowa State University GIS Facility &copy; 2020, Iowa DNR"
-});
-
+}).addTo(map);
+        
+    
       var Cityparks = L.esri.featureLayer({
-        url: "https://services.arcgis.com/vPD5PVLI6sfkZ5E4/ArcGIS/rest/services/City_Park_Locations/FeatureServer/0",
+  url:"https://services.arcgis.com/vPD5PVLI6sfkZ5E4/ArcGIS/rest/services/City_Park_Locations/FeatureServer/0",
         style: function () {
           return { color: "#70ca49", weight: 2 };
         }
       }).addTo(map);
 
-      var popupTemplate = "<h3>{NAME}</h3>{ACRES} Acres<br><small>Property ID: {PROPERTYID}<small>";
-
-      parks.bindPopup(function(e){
+      Cityparks.bindPopup(function(e){
         return L.Util.template(popupTemplate, e.feature.properties)
       });
     </script>
