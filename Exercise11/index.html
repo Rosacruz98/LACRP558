@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    
+    <script src="https://unpkg.com/esri-leaflet/dist/esri-leaflet.js"></script>
+
+    <style>
+      html, body, #map {
+        margin:0; padding:0;  width : 100%; height : 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+    
+        var ortho_1990 = L.tileLayer.wms("https://ortho.gis.iastate.edu/arcgis/services/ortho/ortho_1990/ImageServer/WMSServer", {
+    layers: 'ortho_1990',
+    format: 'image/png',
+    transparent: true,
+    attribution: "Iowa State University GIS Facility &copy; 2020, Iowa DNR"
+});
+
+      var Cityparks = L.esri.featureLayer({
+        url: "https://services.arcgis.com/vPD5PVLI6sfkZ5E4/ArcGIS/rest/services/City_Park_Locations/FeatureServer/0",
+        style: function () {
+          return { color: "#70ca49", weight: 2 };
+        }
+      }).addTo(map);
+
+      var popupTemplate = "<h3>{NAME}</h3>{ACRES} Acres<br><small>Property ID: {PROPERTYID}<small>";
+
+      parks.bindPopup(function(e){
+        return L.Util.template(popupTemplate, e.feature.properties)
+      });
+    </script>
+  </body>
+</html>
